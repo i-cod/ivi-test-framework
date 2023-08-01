@@ -38,9 +38,27 @@ virtualenv venv/
 source venv/bin/activate
 ```
 
+#### Задаем логин и пароль
+Перейти в файл `settings.py` и прописать данные вместо пустых кавычек:
+```
+self.username = os.environ.get("IVI_TEST_USER", "")
+self.password = os.environ.get("IVI_TEST_PASSWORD", "")
+```
+Либо задать через переменные окружения
+
 #### Ставим зависимости и запускаем тесты
 ```
 pip install -r requirements.txt
 pytest -v
 ```
+
+## Запуск в Docker контейнере
+Данный метод - альтернатива локальному запуску проекта
+#### Собираем образ
+```
+cd ivi-test-framework/
+docker build -f ./Dockerfile -t ivi_test .
+```
+#### Запускаем контейнер
+`docker run --env IVI_TEST_USER=<username> --env IVI_TEST_PASSWORD=<password> ivi_test`
     

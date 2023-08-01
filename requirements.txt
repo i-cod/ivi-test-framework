@@ -1,3 +1,4 @@
 virtualenv
 requests
 flake8
+pytest

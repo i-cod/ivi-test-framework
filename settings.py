@@ -21,6 +21,6 @@ class Config:
     host: str
 
     def __init__(self):
-        self.username = os.environ.get("IVI_TEST_USER")
-        self.password = os.environ.get("IVI_TEST_PASSWORD")
+        self.username = os.environ.get("IVI_TEST_USER", "")
+        self.password = os.environ.get("IVI_TEST_PASSWORD", "")
         self.host = os.environ.get("HOST_URL", "http://rest.test.ivi.ru")
