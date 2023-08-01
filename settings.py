@@ -18,7 +18,9 @@ def singleton(class_):
 class Config:
     username: str
     password: str
+    host: str
 
     def __init__(self):
-        self.username = os.environ.get("IVI_TEST_LOGIN")
+        self.username = os.environ.get("IVI_TEST_USER")
         self.password = os.environ.get("IVI_TEST_PASSWORD")
+        self.host = os.environ.get("HOST_URL", "http://rest.test.ivi.ru")
